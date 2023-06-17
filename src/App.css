@@ -1,0 +1,191 @@
+@import url("https://fonts.googleapis.com/css2?family=Gloria+Hallelujah&family=Inter:wght@400;600&family=Lilita+One&family=Nerko+One&family=Roboto:wght@100;300;400&family=Titan+One&display=swap");
+
+body {
+  font-family: "Titan One" !important ;
+}
+.nav-container {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.fullName {
+  order: 1;
+  color: #fff;
+  letter-spacing: 1.5px;
+  text-shadow: -1.5px 0 #6b5763, 0 1.5px #6b5763, 1.5px 0 #6b5763,
+    0 -1.5px #6b5763;
+}
+
+.nav-end-contauner {
+  display: flex;
+  justify-content: space-between;
+  flex-direction: row-reverse;
+  width: 236px;
+  margin: 0.5%;
+  align-items: baseline;
+}
+.link {
+  text-decoration: none;
+
+  font-size: 18px;
+  color: #6b5763;
+  margin: 0 10px;
+}
+
+.search-container {
+  display: flex;
+  align-self: center;
+}
+.svg-search {
+  height: auto;
+  text-align: center;
+  font-size: 30px;
+  color: #6b5763;
+}
+.svg-search:hover + .search-text {
+  display: block;
+}
+.search-text {
+  top: 0;
+  left: 0;
+  width: 70%;
+  height: 70%;
+  text-align: center;
+  font-size: 18px;
+  color: #6b5763;
+  display: none;
+}
+.swiper-container {
+  overflow-x: auto;
+  background-color: none;
+}
+
+.swiper-wrapper {
+  margin-top: 8vh;
+  display: flex;
+  flex-wrap: nowrap;
+}
+.swiper-button-prev:after .swiper-button-next:after {
+  color: #6b5763;
+}
+
+.cardContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+}
+
+.cardBody {
+  width: 100%;
+  max-width: 400px; /* maximum width of card */
+  background-color: #fff;
+  border: 1px solid #ddd;
+  border-radius: 20px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.25);
+  padding: 20px;
+  text-align: center;
+  height: 650px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  text-align: center;
+}
+
+.cardBody:hover {
+  transform: scale(1.05);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.4);
+  transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+
+.pet-name {
+  font-size: 24px;
+  color: #6b5763;
+  font-weight: bold;
+  margin: 10px 0;
+  letter-spacing: 1.5px;
+  text-shadow: -1px 0 #fff, 0 1px #fff, 1px 0 #fff, 0 -1px #fff;
+}
+.pet-description {
+  font-size: 18px;
+  margin: 10px 0;
+}
+
+.pet-image {
+  width: 80%;
+  height: auto;
+}
+
+.adoption-buttons .pets-botton {
+  margin-top: 5px;
+  border: 1px solid #6b5763;
+  padding: 2.5px;
+  color: #6b5763;
+  background-color: #fff;
+  box-shadow: 5px 5px 15px 5px rgba(0, 0, 0, 0.25);
+}
+
+.adoption-buttons {
+  display: flex;
+  justify-content: space-between;
+}
+
+svg {
+  align-self: flex-end;
+}
+
+h6 {
+  color: #6b5763;
+}
+
+h3 {
+  color: #6b5763;
+  letter-spacing: 1px;
+  text-shadow: -1px 0 #f7fcff, 0 1px #f7fcff, 1px 0 #f7fcff, 0 -1px #f7fcff;
+  display: flex;
+
+  justify-content: center;
+}
+
+.more-detailes-button {
+  display: flex;
+  align-self: center;
+  margin-top: auto;
+}
+.myPet-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.advenced {
+  display: flex;
+  justify-content: center;
+  margin-top: 30px;
+}
+
+.search-button {
+  display: flex;
+
+  justify-content: center;
+}
+
+.search-button:hover {
+  transform: scale(1.5);
+
+  transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+
+.form-switch {
+  display: flex;
+  justify-content: center;
+  padding-left: -2.5em;
+}
+
+.search-header {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
