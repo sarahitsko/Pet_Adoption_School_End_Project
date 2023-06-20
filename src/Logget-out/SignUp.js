@@ -4,7 +4,7 @@ import Form from "react-bootstrap/Form";
 import React, { useState } from "react";
 import Modal from "react-bootstrap/Modal";
 import { useNavigate } from "react-router-dom";
-import "../Logget-out/Logged-out.css";
+import styles from "../Logget-out/styles.module.css";
 import Login from "./Login";
 import axios from "axios";
 
@@ -41,8 +41,10 @@ const SignUp = ({
     <>
       <Button
         style={{
-          color: "#6B5763",
+          color: "#D91A5A",
           border: "none",
+          fontSize: "20px",
+          fontWeight: "bold",
         }}
         onClick={handleShowSignUp}
         variant="outline-light"
@@ -125,7 +127,7 @@ const SignUp = ({
         </Modal.Body>
         <Modal.Footer>
           <Button
-            style={{ backgroundColor: "#6B5763" }}
+            style={{ backgroundColor: "#D91A5A" }}
             variant="outline-light"
             onClick={() => {
               handleCloseSignUp();

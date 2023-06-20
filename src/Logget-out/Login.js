@@ -5,7 +5,7 @@ import Modal from "react-bootstrap/Modal";
 import FloatingLabel from "react-bootstrap/FloatingLabel";
 import AppContext from "../context/AppContext";
 import "../App.css";
-import "../Logget-out/Logged-out.css";
+import styles from "../Logget-out/styles.module.css";
 import { useNavigate, Link } from "react-router-dom";
 
 // 	Login Component (inside a modal):
@@ -27,7 +27,7 @@ const Login = ({ showLoginModal, setShowLoginModal, setShowSignUpModal }) => {
 
   const handleLogin = async () => {
     LoginUser({ email, password });
-
+    navigate("/home");
     console.log(typeof email);
     console.log(typeof password);
   };
@@ -40,8 +40,10 @@ const Login = ({ showLoginModal, setShowLoginModal, setShowSignUpModal }) => {
     <>
       <Button
         style={{
-          color: "#6B5763",
+          color: "#D91A5A",
           border: "none",
+          fontSize: "20px",
+          fontWeight: "bold",
         }}
         variant="outline-light"
         className="login"
@@ -88,7 +90,7 @@ const Login = ({ showLoginModal, setShowLoginModal, setShowSignUpModal }) => {
             </p>
           </div>
           <Button
-            style={{ backgroundColor: "#6B5763" }}
+            style={{ backgroundColor: "#D91A5A" }}
             variant="outline-light"
             onClick={() => {
               handleLogin({ email, password });

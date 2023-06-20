@@ -1,7 +1,6 @@
-@import url("https://fonts.googleapis.com/css2?family=Gloria+Hallelujah&family=Inter:wght@400;600&family=Lilita+One&family=Nerko+One&family=Roboto:wght@100;300;400&family=Titan+One&display=swap");
-
+@import url("https://fonts.googleapis.com/css2?family=Raleway:wght@200;800&display=swap");
 body {
-  font-family: "Titan One" !important ;
+  font-family: "Raleway", sans-serif !important ;
 }
 .nav-container {
   width: 100%;

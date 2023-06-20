@@ -1,48 +1,21 @@
 import NavItem from "react-bootstrap/NavItem";
 import NavLink from "react-bootstrap/NavLink";
 import Nav from "react-bootstrap/Nav";
-import { useNavigate, Link } from "react-router-dom";
 import { useContext, useState } from "react";
-import { BsSearch } from "react-icons/bs";
 import AppContext from "../context/AppContext";
+import { useNavigate, Link } from "react-router-dom";
+import { BsSearch } from "react-icons/bs";
+
 import SignUp from "../Logget-out/SignUp";
 import Login from "../Logget-out/Login";
 import axios from "axios";
 import "../App.css";
 
 function Header({ handleShow }) {
-  const { currentUser, userInfo, setUserInfo, setCurrentUser, token } =
-    useContext(AppContext);
   // const [isLoggedIn, setIsLoggedIn] = useState(false);
-  const [showLoginModal, setShowLoginModal] = useState(false);
-  const [showSignUpModal, setShowSignUpModal] = useState(false);
-  const [loggedOut, setLoggedOut] = useState("");
+  const { currentUser, setCurrentUser, token, userInfo } =
+    useContext(AppContext);
   let navigate = useNavigate();
-
-  const handleShowLogin = () => {
-    setShowLoginModal(false);
-  };
-
-  const handleCloseLogin = () => {
-    setShowLoginModal(false);
-  };
-
-  const handleChange = (e) => {
-    setUserInfo({ ...userInfo, [e.target.name]: e.target.value });
-  };
-  const handleSignUp = async (e) => {
-    try {
-      const res = await axios.post(
-        `http://localhost:8080/users/signup`,
-        userInfo,
-        { withCredentials: true }
-      );
-      setUserInfo(res.data);
-    } catch (err) {
-      console.log(err);
-    }
-  };
-
   const hendleLoggingOut = async (e) => {
     e.preventDefault();
     try {
@@ -61,7 +34,6 @@ function Header({ handleShow }) {
       console.log(err, err.message);
     }
   };
-
   return (
     <Nav fill variant="tabs" defaultActiveKey="/home">
       <div className="nav-container">
@@ -125,24 +97,7 @@ function Header({ handleShow }) {
               <h5>Hello {currentUser.name}</h5>
             )}
           </div>
-          {!currentUser && !currentUser.name && (
-            <div className="main-login">
-              <SignUp
-                showSignUpModal={showSignUpModal}
-                setShowSignUpModal={setShowSignUpModal}
-                setShowLoginModal={setShowLoginModal}
-                handleChange={handleChange}
-                handleSignUp={handleSignUp}
-                userInfo={userInfo}
-              />
-              <Login
-                showLoginModal={showLoginModal}
-                setShowLoginModal={setShowLoginModal}
-                userInfo={userInfo}
-                setShowSignUpModal={setShowSignUpModal}
-              />
-            </div>
-          )}
+
           {currentUser && currentUser.name && (
             <div className="link" onClick={hendleLoggingOut}>
               <Link to="/LoggedOut">Log Out</Link>
