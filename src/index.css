@@ -20,6 +20,13 @@ App {
   display: flex;
   justify-content: space-between;
   align-items: center;
+
+  padding-right: 80px;
+}
+
+.custom-color {
+  background-color: #ff0000; /* Replace with your desired color */
+  /* Additional styles if needed */
 }
 
 .nav-item {

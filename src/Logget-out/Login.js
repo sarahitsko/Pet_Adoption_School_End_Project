@@ -27,9 +27,7 @@ const Login = ({ showLoginModal, setShowLoginModal, setShowSignUpModal }) => {
 
   const handleLogin = async () => {
     LoginUser({ email, password });
-    navigate("/home");
-    console.log(typeof email);
-    console.log(typeof password);
+    navigate("/loggedOut");
   };
   const handleToggleSignUp = () => {
     setShowSignUpModal(true);

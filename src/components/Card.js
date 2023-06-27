@@ -2,6 +2,7 @@
 
 import axios from "axios";
 import "../App.css";
+import "../Pages/PetPage.css";
 import AppContext from "../context/AppContext";
 import { GrFavorite } from "react-icons/gr";
 import { FcLikePlaceholder } from "react-icons/fc";
@@ -114,7 +115,12 @@ function Card({ card }) {
           <p>{card.type}</p>
           <p>{card.adoptionStatus}</p>
         </div>
-        <img className="pet-image" src={card.imageUrl} alt="Pet"></img>
+        <img
+          className="pet-image"
+          src={card.imageUrl}
+          alt="Pet"
+          style={{ width: "100%", height: "300px", objectFit: "cover" }}
+        ></img>
         <div className="more-detailes-button">
           <FullDetailsModal card={card} savedPet={savedPet} />
         </div>

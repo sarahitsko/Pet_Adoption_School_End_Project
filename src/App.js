@@ -1,5 +1,5 @@
 import Header from "./components/HeaderNav";
-import { BrowserRouter, Routes, Route, useLocation } from "react-router-dom";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 import PetPage from "./Pages/PetPage";
 import MyPetPage from "./Pages/MyPetPage";
 import Login from "./Logget-out/Login";
@@ -63,19 +63,20 @@ const App = ({ card }) => {
         userInfo,
         { withCredentials: true }
       );
-      if (res.data.token) {
-        localStorage.setItem("token", res.data.token);
+
+      if (res.data.ok) {
+        console.log(res.data);
         localStorage.setItem(
           "currentUser",
           JSON.stringify(res.data || currentUser)
         );
-        setToken(res.data.token);
-        setCurrentUser(res.data || currentUser);
+        setCurrentUser(res.data.id);
       }
     } catch (err) {
       console.error(err.message);
     }
   };
+  console.log(currentUser.name);
 
   useEffect(() => {
     const storedToken = localStorage.getItem("token");

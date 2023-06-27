@@ -2,54 +2,52 @@
 body {
   font-family: "Raleway", sans-serif !important ;
 }
+
 .nav-container {
   width: 100%;
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
-.fullName {
+.fullName h5 {
   order: 1;
-  color: #fff;
+  color: #6b5763;
   letter-spacing: 1.5px;
-  text-shadow: -1.5px 0 #6b5763, 0 1.5px #6b5763, 1.5px 0 #6b5763,
-    0 -1.5px #6b5763;
+  font-size: 18px;
+  font-weight: bold;
 }
 
-.nav-end-contauner {
+.nav-end-container {
+  flex-grow: 0.1;
   display: flex;
   justify-content: space-between;
-  flex-direction: row-reverse;
+  flex-direction: row;
   width: 236px;
   margin: 0.5%;
   align-items: baseline;
 }
 .link {
   text-decoration: none;
-
   font-size: 18px;
   color: #6b5763;
   margin: 0 10px;
 }
 
 .search-container {
-  display: flex;
-  align-self: center;
+  flex-grow: 0.6;
 }
 .svg-search {
   height: auto;
   text-align: center;
-  font-size: 30px;
+  font-size: 23px;
   color: #6b5763;
 }
 .svg-search:hover + .search-text {
   display: block;
 }
 .search-text {
-  top: 0;
-  left: 0;
+  transform: translate(16px, -90%);
   width: 70%;
-  height: 70%;
   text-align: center;
   font-size: 18px;
   color: #6b5763;
@@ -76,29 +74,6 @@ body {
   gap: 20px;
 }
 
-.cardBody {
-  width: 100%;
-  max-width: 400px; /* maximum width of card */
-  background-color: #fff;
-  border: 1px solid #ddd;
-  border-radius: 20px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.25);
-  padding: 20px;
-  text-align: center;
-  height: 650px;
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  align-items: center;
-  text-align: center;
-}
-
-.cardBody:hover {
-  transform: scale(1.05);
-  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.4);
-  transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
-}
-
 .pet-name {
   font-size: 24px;
   color: #6b5763;
@@ -110,11 +85,6 @@ body {
 .pet-description {
   font-size: 18px;
   margin: 10px 0;
-}
-
-.pet-image {
-  width: 80%;
-  height: auto;
 }
 
 .adoption-buttons .pets-botton {

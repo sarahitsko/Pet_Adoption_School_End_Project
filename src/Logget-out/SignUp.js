@@ -132,7 +132,7 @@ const SignUp = ({
             onClick={() => {
               handleCloseSignUp();
               handleSignUp();
-              navigate("/login");
+              navigate("/loggedOut");
             }}
           >
             Sign-Up

@@ -1,5 +1,6 @@
 import Card from "../components/Card";
 import "../App.css";
+import "./PetPage.css";
 import CardList from "../components/CardList";
 import { useState, useEffect, useContext, useNevigate } from "react";
 import AppContext from "../context/AppContext";
@@ -19,7 +20,7 @@ const PetPage = ({
   return (
     <>
       <Header />
-      <div className="mainContainer">
+      <div className="PetPageMainContainer">
         <PetSwiper cardList={cardList} />
         {/* <CardList
         card={card}

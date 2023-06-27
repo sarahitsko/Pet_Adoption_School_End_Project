@@ -5,8 +5,10 @@ import AppContext from "../context/AppContext";
 import axios from "axios";
 import { Button } from "react-bootstrap";
 import "../App.css";
+import "./MyPetPage.css";
 import { Container, Row, Col } from "react-bootstrap";
 import sadDog from "../images/sadDog.png";
+import animalsHome from "../images/animalsHome.png";
 import PetSwiper from "swiper";
 
 const MyPetPage = ({ cardList, card }) => {
@@ -57,33 +59,39 @@ const MyPetPage = ({ cardList, card }) => {
   return (
     <>
       <Header />
-      <Container>
-        <Row>
-          <h1>My Pet Page</h1>
-          <div className="myPet-container">
-            {filteredCards.length > 0 ? (
-              <div>
-                {filteredCards.map((card) => (
-                  <Col key={card._id} md={10}>
-                    <div className="myPet-card">
-                      <Card card={card} handleGetPetById={handleGetPetById} />
-                    </div>
-                  </Col>
-                ))}
-              </div>
-            ) : (
-              <>
-                <p>You currently do not own or foster any pets </p>
+      <div
+        className="myPetPageImg"
+        style={{ backgroundImage: `url(${animalsHome})` }}
+      ></div>
+      <div className="myPetPageImg">
+        <Container>
+          <Row>
+            <h1>My Pet Page</h1>
+            <div className="myPet-container">
+              {filteredCards.length > 0 ? (
                 <div>
-                  {" "}
-                  <img src={sadDog} height="100vh" />
+                  {filteredCards.map((card) => (
+                    <Col key={card._id} md={10}>
+                      <div className="myPet-card">
+                        <Card card={card} handleGetPetById={handleGetPetById} />
+                      </div>
+                    </Col>
+                  ))}
                 </div>
-              </>
-            )}
-          </div>
-          <div></div>
-        </Row>
-      </Container>
+              ) : (
+                <>
+                  <p>You currently do not own or foster any pets </p>
+                  <div>
+                    {" "}
+                    <img src={sadDog} height="100vh" />
+                  </div>
+                </>
+              )}
+            </div>
+            <div></div>
+          </Row>
+        </Container>
+      </div>
     </>
   );
 };

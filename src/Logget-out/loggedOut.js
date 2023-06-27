@@ -20,7 +20,8 @@ import { MDBBtn, MDBContainer } from "mdb-react-ui-kit";
 
 // Link to search bar
 const LoggedOut = () => {
-  const { currentUser, setCurrentUser, token } = useContext(AppContext);
+  const { currentUser, setCurrentUser, token, LoginUser } =
+    useContext(AppContext);
   const [userInfo, setUserInfo] = useState({
     name: "",
     phoneNumber: "",
@@ -52,8 +53,10 @@ const LoggedOut = () => {
         { withCredentials: true }
       );
       setUserInfo(res.data);
+      navigate("/home");
+      console.log(res.data);
     } catch (err) {
-      console.log(err);
+      console.log(err.message);
     }
   };
 
