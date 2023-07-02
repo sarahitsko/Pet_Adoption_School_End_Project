@@ -8,10 +8,11 @@ body {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  border: 2px solid #2a2a37;
 }
 .fullName h5 {
   order: 1;
-  color: #6b5763;
+  color: #2a2a37;
   letter-spacing: 1.5px;
   font-size: 18px;
   font-weight: bold;
@@ -53,7 +54,7 @@ body {
   color: #6b5763;
   display: none;
 }
-.swiper-container {
+/* .swiper-container {
   overflow-x: auto;
   background-color: none;
 }
@@ -65,69 +66,7 @@ body {
 }
 .swiper-button-prev:after .swiper-button-next:after {
   color: #6b5763;
-}
-
-.cardContainer {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 20px;
-}
-
-.pet-name {
-  font-size: 24px;
-  color: #6b5763;
-  font-weight: bold;
-  margin: 10px 0;
-  letter-spacing: 1.5px;
-  text-shadow: -1px 0 #fff, 0 1px #fff, 1px 0 #fff, 0 -1px #fff;
-}
-.pet-description {
-  font-size: 18px;
-  margin: 10px 0;
-}
-
-.adoption-buttons .pets-botton {
-  margin-top: 5px;
-  border: 1px solid #6b5763;
-  padding: 2.5px;
-  color: #6b5763;
-  background-color: #fff;
-  box-shadow: 5px 5px 15px 5px rgba(0, 0, 0, 0.25);
-}
-
-.adoption-buttons {
-  display: flex;
-  justify-content: space-between;
-}
-
-svg {
-  align-self: flex-end;
-}
-
-h6 {
-  color: #6b5763;
-}
-
-h3 {
-  color: #6b5763;
-  letter-spacing: 1px;
-  text-shadow: -1px 0 #f7fcff, 0 1px #f7fcff, 1px 0 #f7fcff, 0 -1px #f7fcff;
-  display: flex;
-
-  justify-content: center;
-}
-
-.more-detailes-button {
-  display: flex;
-  align-self: center;
-  margin-top: auto;
-}
-.myPet-container {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-}
+} */
 
 .advenced {
   display: flex;

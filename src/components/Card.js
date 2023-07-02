@@ -85,11 +85,7 @@ function Card({ card }) {
       <div className="header">
         <div className="date"></div>
       </div>
-      <div
-        className={`card ${
-          current_page === "myPetPage" ? "myPet-container" : "cardBody"
-        }`}
-      >
+      <div className="cardBody">
         {current_page === "/PetPage" && (
           <>
             {isLiked ? (
@@ -115,12 +111,7 @@ function Card({ card }) {
           <p>{card.type}</p>
           <p>{card.adoptionStatus}</p>
         </div>
-        <img
-          className="pet-image"
-          src={card.imageUrl}
-          alt="Pet"
-          style={{ width: "100%", height: "300px", objectFit: "cover" }}
-        ></img>
+        <img className="pet-image" src={card.imageUrl} alt="Pet"></img>
         <div className="more-detailes-button">
           <FullDetailsModal card={card} savedPet={savedPet} />
         </div>

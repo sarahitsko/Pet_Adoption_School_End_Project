@@ -9,7 +9,7 @@ import "./MyPetPage.css";
 import { Container, Row, Col } from "react-bootstrap";
 import sadDog from "../images/sadDog.png";
 import animalsHome from "../images/animalsHome.png";
-import PetSwiper from "swiper";
+// import PetSwiper from "swiper";
 
 const MyPetPage = ({ cardList, card }) => {
   const [filteredCards, setFilteredCards] = useState([]);

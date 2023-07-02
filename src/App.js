@@ -184,13 +184,13 @@ const App = ({ card }) => {
         <BrowserRouter>
           {/* private routes for home,petpage, my page.... when logout- dekete the token from local storage */}
           <Routes>
-            <Route path="/LoggedOut" element={<LoggedOut />} />
+            <Route path="/loggedOut" element={<LoggedOut />} />
             <Route path="/signup" element={<SignUp />} />
             <Route path="/login" element={<Login />} />
-            <Route path="/Home" element={<Home />} />
-            <Route path="/SearchPage" element={<SearchPage />} />
+            <Route path="/home" element={<Home />} />
+            <Route path="/searchpage" element={<SearchPage />} />
             <Route
-              path="/PetPage"
+              path="/petpage"
               element={
                 <PetPage
                   card={card}
@@ -202,10 +202,10 @@ const App = ({ card }) => {
               }
             />
             <Route
-              path="/MyPetPage"
+              path="/mypetpage"
               element={<MyPetPage cardList={cardList} card={card} />}
             />
-            <Route path="/AdminPage" element={<AdminPage />} />
+            <Route path="/adminpage" element={<AdminPage />} />
             <Route
               path="/dashboard"
               element={

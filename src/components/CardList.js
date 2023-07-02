@@ -7,10 +7,22 @@ const CardList = ({ cardList, savePet, card }) => {
   const { handleSavePet, savedPet, setSavedPet } = useContext(AppContext);
 
   return (
-    <Container>
-      <Row>
+    <Container className="cardContainer">
+      <Row className=" justify-content-md-center ">
         {cardList.map((card) => (
-          <Col key={card.id} md={3}>
+          <Col
+            key={card.id}
+            md="auto"
+            className="card-item"
+            style={{
+              display: "flex",
+              flexWrap: "wrap",
+              justifyContent: "center",
+              marginRight: "5px",
+              marginLeft: "5px",
+              marginTop: "30px",
+            }}
+          >
             <Card card={card} />
           </Col>
         ))}

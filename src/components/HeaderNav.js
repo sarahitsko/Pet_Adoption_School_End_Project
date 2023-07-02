@@ -46,14 +46,20 @@ function Header({ handleShow }) {
       variant="tabs"
       defaultActiveKey="/home"
       bg="custom-color"
-      style={{ display: "flex", justifyContent: "space-between" }}
+      style={{
+        display: "flex",
+        backgroundColor: "#f5f5f5",
+        justifyContent: "space-between",
+        border: "1px solid black",
+      }}
     >
       <div className="linkNav">
         <Nav>
           <Nav.Link
             to="/home"
+            as={Link}
             style={{
-              color: "#652D90",
+              color: " #9e1f63",
               fontSize: "20px",
               fontWeight: "bold",
             }}
@@ -64,10 +70,10 @@ function Header({ handleShow }) {
         <Nav>
           <Nav.Link
             as={Link}
-            to="/MyPetPage"
+            to="/mypetpage"
             eventKey="link-1"
             style={{
-              color: "#652D90",
+              color: " #9e1f63",
               fontSize: "20px",
               fontWeight: "bold",
             }}
@@ -78,10 +84,10 @@ function Header({ handleShow }) {
         <Nav>
           <Nav.Link
             as={Link}
-            to="/PetPage"
+            to="/petpage"
             eventKey="link-2"
             style={{
-              color: "#652D90",
+              color: " #9e1f63",
               fontSize: "20px",
               fontWeight: "bold",
             }}
