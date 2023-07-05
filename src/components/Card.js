@@ -86,7 +86,7 @@ function Card({ card }) {
         <div className="date"></div>
       </div>
       <div className="cardBody">
-        {current_page === "/PetPage" && (
+        {current_page === "/petpage" && (
           <>
             {isLiked ? (
               <FcLikePlaceholder
@@ -97,10 +97,11 @@ function Card({ card }) {
             )}
           </>
         )}
-        {current_page === "/MyPetPage" && (
+        {current_page === "/mypetpage" && (
           <>
             {showDeleteIcon && (
               <MdOutlineDeleteForever
+                style={{ height: "30px", width: "30px" }}
                 onClick={() => handleDeletePet(card._id)}
               />
             )}

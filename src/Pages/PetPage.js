@@ -15,17 +15,21 @@ const PetPage = ({
   savededPet,
   showLikeIcon,
 }) => {
-  const { handleSavePet, savedPet } = useContext(AppContext);
+  const {
+    handleSavePet,
+    savedPet,
+    onLoadMore: handleLoadMore,
+  } = useContext(AppContext);
 
   return (
     <>
       <Header />
       <div className="PetPageMainContainer">
-        {/* <PetSwiper cardList={cardList} /> */}
         <CardList
           card={card}
           cardList={cardList}
           deleteCard={deleteCard}
+          onLoadMore={handleLoadMore}
           handleSavePet={handleSavePet}
           savedPet={savedPet}
           setSavedPet={setSavedPet}

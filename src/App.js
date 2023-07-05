@@ -9,8 +9,10 @@ import LoggedOut from "./Logget-out/loggedOut";
 import AdminPage from "./admin/AdminPage";
 import SearchPage from "./Pages/SearchPage";
 import DashBoard from "./admin/DashBoard";
+import Loading from "../src/components/Loading";
 import "./App.css";
 import "./index.css";
+
 import React from "react";
 import AppContext from "./context/AppContext";
 import { useState, useEffect, useContext } from "react";
@@ -24,13 +26,11 @@ const App = ({ card }) => {
   const [deleteSavedPet, setDeleteSavedPet] = useState([{}]);
   const [admin, setAdmin] = useState("");
   const [token, setToken] = useState(localStorage.getItem("token") || "");
-  // const [currentUser, setCurrentUser] = useState(
-  //   JSON.parse(localStorage.getItem("currentUser")) || {}
-  // );
+  const [currentPage, setCurrentPage] = useState(0);
   const [currentUser, setCurrentUser] = useState("");
   const [email, setEmail] = useState("");
   const [petById, setPetById] = useState([]);
-
+  const [isLoading, setIsLoading] = useState(false);
   const [password, setPassword] = useState([]);
   const [userInfo, setUserInfo] = useState({
     name: "",
@@ -89,20 +89,27 @@ const App = ({ card }) => {
     }
   }, []);
 
-  const fetchCards = async () => {
+  const fetchCards = async (page) => {
     try {
-      const res = await axios.get("http://localhost:8080/pets", {
+      setIsLoading(true);
+      const res = await axios.get(`http://localhost:8080/pets?page=${page}`, {
         withCredentials: true,
       });
-      setCardList(res.data);
+      setCardList((prevCardList) => [...prevCardList, ...res.data]);
     } catch (err) {
       console.log(err);
+    } finally {
+      setIsLoading(false);
     }
   };
 
   useEffect(() => {
-    fetchCards();
-  }, []);
+    fetchCards(currentPage);
+  }, [currentPage]);
+
+  const handleLoadMore = () => {
+    setCurrentPage((prevPage) => prevPage + 1);
+  };
 
   const addCard = (newCard) => {
     const newCardsArray = [...cardList, newCard];
@@ -179,6 +186,7 @@ const App = ({ card }) => {
           setPassword,
           password,
           setDeleteSavedPet,
+          onLoadMore: handleLoadMore,
         }}
       >
         <BrowserRouter>
@@ -195,6 +203,7 @@ const App = ({ card }) => {
                 <PetPage
                   card={card}
                   cardList={cardList}
+                  onLoadMore={handleLoadMore}
                   fetchCards={fetchCards}
                   addCard={addCard}
                   handleSavePet={setSavedPet}
