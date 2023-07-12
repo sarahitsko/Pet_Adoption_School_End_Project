@@ -22,31 +22,38 @@
   height: 100vh;
 }
 #loggedOutBackgroundImg {
-  flex: 1;
+  flex: 1.2;
   display: flex;
   flex-direction: column;
   position: relative;
-  border: 3px solid black;
+  border: 3px solid #000;
+  background-color: #302f2f;
 }
 
+.pngwing_png {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-position: center;
+}
+.HeadlineLoggedout h1 {
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+}
 .HeadlineLoggedout {
   position: absolute;
-  font-weight: 800;
-  top: 76%;
-  left: 55%;
-
+  margin: auto;
+  top: 94%;
+  left: 17%;
   transform: translate(-50%, -50%);
-  padding: 80px;
-  background: linear-gradient(
-    to right,
-    #d91a5a,
-    hsl(0, 0%, 100%) 10%,
-    #f35ca9 20%
-  );
+  background: linear-gradient(to right, #4a4a76, #393961 10%, #737376 20%);
+  font-size: 20px;
+  font-weight: bold;
+
   background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
-  animation: shine 5s infinite forwards;
+  animation: shine 10s infinite forwards;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
@@ -65,14 +72,14 @@
 }
 
 .textWrapperLoggedout {
-  background-color: #a4ddf8;
   flex: 1;
   border: 3px solid black;
+  position: relative;
 }
 
 .mainDescription {
   display: flex;
-  background-color: #a4ddf8;
+
   color: #1c1f4e;
   padding: 10vw 10vh;
   flex-direction: column;
@@ -85,6 +92,15 @@
 
 .mainLogin {
   display: flex;
-  margin: 8vh;
-  justify-content: space-evenly;
+  position: absolute;
+  top: 30%;
+  left: 20%;
+
+  flex-direction: column;
+  /* align-content: center;
+  flex-wrap: wrap; */
+}
+
+.signuplogin {
+  margin: 5vh 0 1vh 0;
 }

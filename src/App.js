@@ -76,7 +76,6 @@ const App = ({ card }) => {
       console.error(err.message);
     }
   };
-  console.log(currentUser.name);
 
   useEffect(() => {
     const storedToken = localStorage.getItem("token");
@@ -195,7 +194,7 @@ const App = ({ card }) => {
             <Route path="/loggedOut" element={<LoggedOut />} />
             <Route path="/signup" element={<SignUp />} />
             <Route path="/login" element={<Login />} />
-            <Route path="/home" element={<Home />} />
+            <Route path="/" element={<Home />} />
             <Route path="/searchpage" element={<SearchPage />} />
             <Route
               path="/petpage"

@@ -8,13 +8,6 @@ import styles from "../Logget-out/styles.module.css";
 import Login from "./Login";
 import axios from "axios";
 
-// Signup Component (inside a modal):
-
-// Should take an email address
-// Password (twice to make sure passwords match)
-// First and last name
-// Phone number
-
 const SignUp = ({
   handleChange,
   handleSignUp,
@@ -22,6 +15,9 @@ const SignUp = ({
   setShowSignUpModal,
   showSignUpModal,
   setShowLoginModal,
+  isSignUpButtonHovered,
+  handleHoverSignUpButton,
+  handleHoverOutSignUpButton,
 }) => {
   const handleShowSignUp = () => {
     setShowSignUpModal(true);
@@ -41,12 +37,18 @@ const SignUp = ({
     <>
       <Button
         style={{
-          color: "#D91A5A",
-          border: "none",
+          color: "#302F2F",
+          border: "3px solid #302F2F",
+          borderRadius: "15px",
           fontSize: "20px",
           fontWeight: "bold",
+          padding: "1vh 9.5vw",
+          backgroundColor: isSignUpButtonHovered ? "#431E57" : "transparent",
+          color: isSignUpButtonHovered ? "#fff" : "#302F2F",
         }}
         onClick={handleShowSignUp}
+        onMouseEnter={handleHoverSignUpButton}
+        onMouseLeave={handleHoverOutSignUpButton}
         variant="outline-light"
       >
         Sign Up
@@ -132,7 +134,7 @@ const SignUp = ({
             onClick={() => {
               handleCloseSignUp();
               handleSignUp();
-              navigate("/loggedOut");
+              navigate("/");
             }}
           >
             Sign-Up

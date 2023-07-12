@@ -13,7 +13,14 @@ import { useNavigate, Link } from "react-router-dom";
 // Email address
 // Password
 
-const Login = ({ showLoginModal, setShowLoginModal, setShowSignUpModal }) => {
+const Login = ({
+  showLoginModal,
+  setShowLoginModal,
+  setShowSignUpModal,
+  isLoginButtonHovered,
+  handleHoverLoginButton,
+  handleHoverOutLoginButton,
+}) => {
   let navigate = useNavigate();
   const { email, password, LoginUser, setEmail, setPassword } =
     useContext(AppContext);
@@ -27,7 +34,7 @@ const Login = ({ showLoginModal, setShowLoginModal, setShowSignUpModal }) => {
 
   const handleLogin = async () => {
     LoginUser({ email, password });
-    navigate("/loggedOut");
+    navigate("/");
   };
   const handleToggleSignUp = () => {
     setShowSignUpModal(true);
@@ -38,14 +45,20 @@ const Login = ({ showLoginModal, setShowLoginModal, setShowSignUpModal }) => {
     <>
       <Button
         style={{
-          color: "#D91A5A",
-          border: "none",
+          color: "#302F2F",
+          border: "3px solid #302F2F",
           fontSize: "20px",
           fontWeight: "bold",
+          padding: "1vh 10vw",
+          borderRadius: "15px",
+          backgroundColor: isLoginButtonHovered ? "#431E57" : "transparent",
+          color: isLoginButtonHovered ? "#fff" : "#302F2F",
         }}
         variant="outline-light"
         className="login"
         onClick={handleShowLogin}
+        onMouseEnter={handleHoverLoginButton}
+        onMouseLeave={handleHoverOutLoginButton}
       >
         Log In
       </Button>

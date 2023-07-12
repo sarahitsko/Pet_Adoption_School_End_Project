@@ -11,12 +11,9 @@ import axios from "axios";
 import "../App.css";
 
 function Header({ handleShow }) {
-  // const [isLoggedIn, setIsLoggedIn] = useState(false);
   const { currentUser, setCurrentUser, token, userInfo } =
     useContext(AppContext);
   let navigate = useNavigate();
-
-  console.log(currentUser);
 
   const hendleLoggingOut = async (e) => {
     e.preventDefault();
@@ -27,7 +24,7 @@ function Header({ handleShow }) {
           Authorization: `Bearer ${token}`,
         },
       });
-      console.log(res.data.token);
+
       if (!res.data.token) {
         localStorage.removeItem("token");
         localStorage.removeItem("currentUser");
@@ -44,7 +41,7 @@ function Header({ handleShow }) {
       sticky="top"
       fill="true"
       variant="tabs"
-      defaultActiveKey="/home"
+      defaultActiveKey="/"
       bg="custom-color"
       style={{
         display: "flex",
@@ -56,7 +53,7 @@ function Header({ handleShow }) {
       <div className="linkNav">
         <Nav>
           <Nav.Link
-            to="/home"
+            to="/"
             as={Link}
             style={{
               color: " #9e1f63",
@@ -114,7 +111,7 @@ function Header({ handleShow }) {
 
         {currentUser && currentUser.name && (
           <div className="link" onClick={hendleLoggingOut}>
-            <Link to="/LoggedOut">Log Out</Link>
+            <Link to="/loggedOut">Log Out</Link>
           </div>
         )}
       </div>

@@ -6,9 +6,11 @@ import AppContext from "../context/AppContext";
 import { useNavigate, Link } from "react-router-dom";
 import axios from "axios";
 import "../App";
-
+import pet_icon from "../svg/pet_icon.svg";
+import pngwing from "../png/pngwing.png";
 import colorfulDogImage from "../images/colorful-dog.jpg";
 import { MDBBtn, MDBContainer } from "mdb-react-ui-kit";
+import Button from "react-bootstrap/Button";
 
 // Logget out
 
@@ -32,6 +34,10 @@ const LoggedOut = () => {
   const [showLoginModal, setShowLoginModal] = useState(false);
   const [showSignUpModal, setShowSignUpModal] = useState(false);
   const [loggedOut, setLoggedOut] = useState("");
+  const [isSignUpButtonHovered, setIsSignUpButtonHovered] = useState(false);
+  const [isLoginButtonHovered, setIsLoginButtonHovered] = useState(false);
+  const [isContinueAsGuestButtonHovered, setIsContinueAsGuestButtonHovered] =
+    useState(false);
   let navigate = useNavigate();
 
   const handleShowLogin = () => {
@@ -53,39 +59,58 @@ const LoggedOut = () => {
         { withCredentials: true }
       );
       setUserInfo(res.data);
-      navigate("/home");
+      navigate("/");
       console.log(res.data);
     } catch (err) {
       console.log(err.message);
     }
   };
 
+  const handleHoverSignUpButton = () => {
+    setIsSignUpButtonHovered(true);
+  };
+
+  const handleHoverOutSignUpButton = () => {
+    setIsSignUpButtonHovered(false);
+  };
+
+  const handleHoverLoginButton = () => {
+    setIsLoginButtonHovered(true);
+  };
+
+  const handleHoverOutLoginButton = () => {
+    setIsLoginButtonHovered(false);
+  };
+
+  const handleContinueAsGuest = () => {
+    setIsContinueAsGuestButtonHovered(true);
+  };
+
+  const handleHoverOutContinueAsGuest = () => {
+    setIsContinueAsGuestButtonHovered(false);
+  };
+
+  const handleNaviagte = () => {
+    navigate("/");
+  };
+
   return (
     <>
       <div className={styles.loggedOutContainer}>
         <div id={styles.loggedOutBackgroundImg}>
-          <img
-            src={colorfulDogImage}
-            alt="background-img"
-            style={{ height: "70vh", width: "auto" }}
-          />
-          <h1 className={styles.HeadlineLoggedout}>Pawsome Adoptions</h1>
+          <div className={styles.pngwing_png}>
+            <img
+              src={pngwing}
+              alt="pngwing"
+              style={{ height: "60vh", width: "60wh" }}
+            />
+          </div>
+          <h1 className={styles.HeadlineLoggedout}>Pawsome Adoptions </h1>
         </div>
         <div className={styles.textWrapperLoggedout}>
-          <div className={styles.mainDescription}>
-            <span>Welcome to our pet adoption website!</span>
-            <span>
-              We offer a range of lovable cats and dogs that are waiting for
-              their forever homes. Whether you're looking to adopt or foster,
-              we're here to help. Our user-friendly website allows you to easily
-              browse and search all available pets. If you're ready to make a
-              difference in a pet's life, we make it easy to start the adoption
-              or fostering process. And when the time comes, our simple return
-              process ensures that all pets receive the care they need. Thank
-              you for considering adopting a pet from us.
-            </span>
-            {!currentUser && !currentUser.name && (
-              <div className={styles.mainLogin}>
+          {!currentUser && !currentUser.name && (
+            <div className={styles.mainLogin}>
+              <div className={styles.signuplogin}>
                 <SignUp
                   showSignUpModal={showSignUpModal}
                   setShowSignUpModal={setShowSignUpModal}
@@ -93,16 +118,46 @@ const LoggedOut = () => {
                   handleChange={handleChange}
                   handleSignUp={handleSignUp}
                   userInfo={userInfo}
+                  isSignUpButtonHovered={isSignUpButtonHovered}
+                  handleHoverSignUpButton={handleHoverSignUpButton}
+                  handleHoverOutSignUpButton={handleHoverOutSignUpButton}
                 />
+              </div>
+              <div className={styles.signuplogin}>
                 <Login
                   showLoginModal={showLoginModal}
                   setShowLoginModal={setShowLoginModal}
                   userInfo={userInfo}
                   setShowSignUpModal={setShowSignUpModal}
+                  isLoginButtonHovered={isLoginButtonHovered}
+                  handleHoverLoginButton={handleHoverLoginButton}
+                  handleHoverOutLoginButton={handleHoverOutLoginButton}
                 />
               </div>
-            )}
-          </div>
+              <div className={styles.signuplogin}>
+                <Button
+                  variant="outline-light"
+                  style={{
+                    color: "#302F2F",
+                    border: "3px solid #302F2F",
+                    fontSize: "20px",
+                    fontWeight: "bold",
+                    borderRadius: "15px",
+                    padding: "1vh 5.4vw",
+                    backgroundColor: isContinueAsGuestButtonHovered
+                      ? "#431E57"
+                      : "transparent",
+                    color: isContinueAsGuestButtonHovered ? "#fff" : "#302F2F",
+                  }}
+                  onMouseEnter={handleContinueAsGuest}
+                  onMouseLeave={handleHoverOutContinueAsGuest}
+                  onClick={handleNaviagte}
+                >
+                  Continue as a Guest
+                </Button>
+              </div>
+            </div>
+          )}
         </div>
       </div>
     </>
