@@ -13,6 +13,9 @@ import "../App.css";
 function Header({ handleShow }) {
   const { currentUser, setCurrentUser, token, userInfo } =
     useContext(AppContext);
+  const [isHomeHovered, setIsHomeHovered] = useState(false);
+  const [isMyPetPageHovered, setIsMyPetPageHovered] = useState(false);
+  const [isPetPagesHovered, setIsPetPagesHovered] = useState(false);
   let navigate = useNavigate();
 
   const hendleLoggingOut = async (e) => {
@@ -35,6 +38,29 @@ function Header({ handleShow }) {
     }
   };
 
+  const handleHoverHomeLink = () => {
+    setIsHomeHovered(true);
+  };
+
+  const handleHoverHomeLinkOff = () => {
+    setIsHomeHovered(false);
+  };
+
+  const handleHoverMyPetPageLink = () => {
+    setIsMyPetPageHovered(true);
+  };
+
+  const handleHoverMyPetPageLinkOff = () => {
+    setIsMyPetPageHovered(false);
+  };
+
+  const handleHoverPetPageLink = () => {
+    setIsPetPagesHovered(true);
+  };
+  const handleHoverPetPageLinkOff = () => {
+    setIsPetPagesHovered(false);
+  };
+
   return (
     <Navbar
       expand="xxl"
@@ -45,7 +71,7 @@ function Header({ handleShow }) {
       bg="custom-color"
       style={{
         display: "flex",
-        backgroundColor: "#f5f5f5",
+        backgroundColor: "#302F2F",
         justifyContent: "space-between",
         border: "1px solid black",
       }}
@@ -56,10 +82,12 @@ function Header({ handleShow }) {
             to="/"
             as={Link}
             style={{
-              color: " #9e1f63",
+              color: isHomeHovered ? "#FD97D8" : " #fff",
               fontSize: "20px",
               fontWeight: "bold",
             }}
+            onMouseEnter={handleHoverHomeLink}
+            onMouseLeave={handleHoverHomeLinkOff}
           >
             Home
           </Nav.Link>
@@ -70,10 +98,12 @@ function Header({ handleShow }) {
             to="/mypetpage"
             eventKey="link-1"
             style={{
-              color: " #9e1f63",
+              color: isMyPetPageHovered ? "#FD97D8" : " #fff",
               fontSize: "20px",
               fontWeight: "bold",
             }}
+            onMouseEnter={handleHoverMyPetPageLink}
+            onMouseLeave={handleHoverMyPetPageLinkOff}
           >
             My Pet Page
           </Nav.Link>
@@ -84,10 +114,12 @@ function Header({ handleShow }) {
             to="/petpage"
             eventKey="link-2"
             style={{
-              color: " #9e1f63",
+              color: isPetPagesHovered ? "#FD97D8" : " #fff",
               fontSize: "20px",
               fontWeight: "bold",
             }}
+            onMouseEnter={handleHoverPetPageLink}
+            onMouseLeave={handleHoverPetPageLinkOff}
             variant="outline-dark"
           >
             Pet Page

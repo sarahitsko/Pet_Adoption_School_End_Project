@@ -14,3 +14,9 @@
   border-radius: 50%;
   animation: spinner 1.5s linear infinite;
 }
+
+.random_img {
+  position: fixed;
+  top: 60%;
+  left: 80%;
+}

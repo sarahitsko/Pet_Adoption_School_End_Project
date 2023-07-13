@@ -151,6 +151,7 @@ const LoggedOut = () => {
                   }}
                   onMouseEnter={handleContinueAsGuest}
                   onMouseLeave={handleHoverOutContinueAsGuest}
+                  title="As a Guest you wont be able to save/ adopt/ foster your favorite pets"
                   onClick={handleNaviagte}
                 >
                   Continue as a Guest

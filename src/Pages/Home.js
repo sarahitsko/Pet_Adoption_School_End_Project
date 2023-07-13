@@ -4,19 +4,16 @@ import { Link } from "react-router-dom";
 import React, { useContext, useState } from "react";
 import "../App.css";
 import "../Logget-out/Login";
-
+import "../components.css";
 import styles from "../Logget-out/styles.module.css";
+import RandomImg from "../components/RandomImg";
 
 const Home = (userInfo) => {
   const { currentUser, setCurrentUser } = useContext(AppContext);
 
   return (
     <>
-      {currentUser && currentUser.name && (
-        <div>
-          <Header />
-        </div>
-      )}
+      <Header />
 
       <div className={styles.mainDescription}>
         <span>Welcome to our pet adoption website!</span>
@@ -27,10 +24,11 @@ const Home = (userInfo) => {
           search all available pets. If you're ready to make a difference in a
           pet's life, we make it easy to start the adoption or fostering
           process. And when the time comes, our simple return process ensures
-          that all pets receive the care they need. Thank you for considering
-          adopting a pet from us.
+          that all pets receive the care they need.
+          <p>Thank you for considering adopting a pet from us.</p>
         </span>
       </div>
+      <RandomImg />
     </>
   );
 };
