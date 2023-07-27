@@ -43,8 +43,7 @@ const SignUp = ({
           fontSize: "20px",
           fontWeight: "bold",
           padding: "1vh 9.5vw",
-          backgroundColor: isSignUpButtonHovered ? "#431E57" : "transparent",
-          color: isSignUpButtonHovered ? "#fff" : "#302F2F",
+          backgroundColor: isSignUpButtonHovered ? "#FFF0C7" : "#7FC9BF",
         }}
         onClick={handleShowSignUp}
         onMouseEnter={handleHoverSignUpButton}

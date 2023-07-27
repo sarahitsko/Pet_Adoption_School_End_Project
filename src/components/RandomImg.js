@@ -12,7 +12,7 @@ const RandomImg = () => {
       const res = await axios.get("http://localhost:8080/pets/images/random", {
         withCredentials: true,
       });
-      console.log(res.data.imageUrl);
+
       setRandomImg(res.data.imageUrl);
     } catch (error) {
       console.log(error.message);
@@ -31,12 +31,20 @@ const RandomImg = () => {
 
   return (
     <>
-      <div className="random_img">
-        {randomImg ? (
-          <Avatar src={randomImg} alt="random image" size="200" round={true} />
-        ) : (
-          <p>Loading image...</p>
-        )}
+      <div className="img_container">
+        <div className="random_img">
+          {randomImg ? (
+            <Avatar
+              src={randomImg}
+              alt="random image"
+              size="250"
+              round={true}
+              style={{ border: "2px solid #ccc", boxShadow: "0 0 10px #000" }}
+            />
+          ) : (
+            <p>Loading image...</p>
+          )}
+        </div>
       </div>
     </>
   );

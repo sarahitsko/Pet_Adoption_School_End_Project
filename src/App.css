@@ -13,8 +13,10 @@ body {
 }
 .fullName h5 {
   order: 1;
-  color: #2a2a37;
+  color: #f0f0f3;
   letter-spacing: 1.5px;
+  border-right: 2px solid #ccc;
+  padding-right: 1vw;
   font-size: 18px;
   font-weight: bold;
 }
@@ -34,43 +36,40 @@ body {
   color: #6b5763;
   margin: 0 10px;
 }
-
-.search-container {
-  flex-grow: 0.6;
-}
 .svg-search {
   height: auto;
   text-align: center;
   font-size: 23px;
-  color: #6b5763;
 }
 .svg-search:hover + .search-text {
   display: block;
 }
+
+.search-container {
+  flex-grow: 0.6;
+}
+
+.search-page-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 50vh;
+}
+
 .search-text {
   transform: translate(16px, -90%);
   width: 70%;
   text-align: center;
   font-size: 18px;
-  color: #6b5763;
+  font-weight: bold;
+  color: #fff;
   display: none;
 }
-/* .swiper-container {
-  overflow-x: auto;
-  background-color: none;
-}
-
-.swiper-wrapper {
-  margin-top: 8vh;
-  display: flex;
-  flex-wrap: nowrap;
-}
-.swiper-button-prev:after .swiper-button-next:after {
-  color: #6b5763;
-} */
 
 .advenced {
   display: flex;
+  flex-direction: column;
   justify-content: center;
   margin-top: 30px;
 }
@@ -87,14 +86,44 @@ body {
   transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
 }
 
-.form-switch {
+.search-header h3 {
   display: flex;
-  justify-content: center;
-  padding-left: -2.5em;
-}
-
-.search-header {
-  display: flex;
+  font-family: "Raleway", sans-serif;
+  font-weight: bold;
+  color: rgb(18, 136, 121);
   justify-content: center;
   flex-direction: column;
+  align-items: center;
+}
+.search_link {
+  display: flex;
+  justify-content: center;
+  text-decoration: underline;
+
+  color: #6b5763;
+  font-weight: bold;
+  margin-top: 4vh;
+  font-size: 18px;
+}
+
+.arrow-svg svg {
+  width: 25px;
+  height: 25px;
+}
+
+.arrow-svg h1 {
+  display: flex;
+  justify-content: center;
+  color: #fec95f;
+  font-weight: bold;
+}
+footer {
+  position: fixed;
+  background-color: #302f2f;
+  color: #fff;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 8px;
+  text-align: end;
 }

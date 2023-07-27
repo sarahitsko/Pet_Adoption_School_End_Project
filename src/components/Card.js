@@ -7,10 +7,12 @@ import AppContext from "../context/AppContext";
 import { GrFavorite } from "react-icons/gr";
 import { FcLikePlaceholder } from "react-icons/fc";
 import { MdOutlineDeleteForever } from "react-icons/md";
-import React, { useState, useContext } from "react";
+import React, { useState, useContext, useEffect } from "react";
 import { Button } from "react-bootstrap";
 import FullDetailsModal from "./fullDetails";
 import { useLocation } from "react-router-dom";
+import Avatar from "react-avatar";
+import RandomColor from "./RandomColor";
 
 function Card({ card }) {
   const {
@@ -22,11 +24,17 @@ function Card({ card }) {
     setDeleteSavedPet,
   } = useContext(AppContext);
   const location = useLocation();
+
   const current_page = location.pathname;
   const [currentStatus, setCurrentStatus] = useState(card.adoptionStatus || "");
   const [showLikeIcon, setShowLikeIcon] = useState(true);
   const [showDeleteIcon, setShowDeleteIcon] = useState(true);
   const [isLiked, setIsLiked] = useState(false);
+  const { color, generateColor } = RandomColor();
+
+  useEffect(() => {
+    generateColor();
+  }, []);
 
   const handleLikePet = async (petId, userId) => {
     try {
@@ -85,7 +93,8 @@ function Card({ card }) {
       <div className="header">
         <div className="date"></div>
       </div>
-      <div className="cardBody">
+
+      <div className="cardBody" style={{ backgroundColor: color }}>
         {current_page === "/petpage" && (
           <>
             {isLiked ? (
@@ -112,11 +121,17 @@ function Card({ card }) {
           <p>{card.type}</p>
           <p>{card.adoptionStatus}</p>
         </div>
-        <img className="pet-image" src={card.imageUrl} alt="Pet"></img>
+        <Avatar
+          className="pet-image"
+          src={card.imageUrl}
+          alt="Pet"
+          size="250"
+          round="true"
+        />
         <div className="more-detailes-button">
           <FullDetailsModal card={card} savedPet={savedPet} />
         </div>
-        {current_page === "/MyPetPage" && (
+        {current_page === "/mypetpage" && (
           <>
             {card.adoptionStatus === "Fostered" ? (
               <Button
@@ -155,7 +170,6 @@ function Card({ card }) {
               onClick={(e) => {
                 handleGetPetById();
                 handleAdopt(e);
-                handleLikePet();
               }}
             >
               Adopt
@@ -166,7 +180,6 @@ function Card({ card }) {
               onClick={(e) => {
                 handleGetPetById();
                 handleAdopt(e);
-                handleLikePet();
               }}
             >
               Foster

@@ -12,7 +12,7 @@ import DashBoard from "./admin/DashBoard";
 import Loading from "../src/components/Loading";
 import "./App.css";
 import "./index.css";
-
+import Footer from "./components/Footer";
 import React from "react";
 import AppContext from "./context/AppContext";
 import { useState, useEffect, useContext } from "react";
@@ -70,7 +70,7 @@ const App = ({ card }) => {
           "currentUser",
           JSON.stringify(res.data || currentUser)
         );
-        setCurrentUser(res.data.id);
+        setCurrentUser(res.data.user);
       }
     } catch (err) {
       console.error(err.message);
@@ -221,6 +221,9 @@ const App = ({ card }) => {
               }
             />
           </Routes>
+          <div className="Footer">
+            <Footer />
+          </div>
         </BrowserRouter>
       </AppContext.Provider>
     </>

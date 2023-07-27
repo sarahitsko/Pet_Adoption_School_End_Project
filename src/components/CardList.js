@@ -36,29 +36,15 @@ const CardList = ({ cardList }) => {
   }, [onLoadMore]);
 
   return (
-    <Container className="cardContainer">
-      <Row className="justify-content-md-center">
-        {cardList.map((card, index) => (
-          <Col
-            key={card.id}
-            md="auto"
-            className="card-item"
-            style={{
-              display: "flex",
-              flexWrap: "wrap",
-              justifyContent: "center",
-              marginRight: "5px",
-              marginLeft: "5px",
-              marginTop: "30px",
-            }}
-          >
-            <Card card={card} />
-            {index === cardList.length - 1 && (
-              <div ref={bottomElementRef} style={{ height: "10px" }} />
-            )}
-          </Col>
-        ))}
-      </Row>
+    <Container className="my-pet-card">
+      {cardList.map((card, index) => (
+        <Col key={card.id} md="auto" style={{ marginTop: "4vh" }}>
+          <Card card={card} />
+          {index === cardList.length - 1 && (
+            <div ref={bottomElementRef} style={{ height: "10px" }} />
+          )}
+        </Col>
+      ))}
     </Container>
   );
 };

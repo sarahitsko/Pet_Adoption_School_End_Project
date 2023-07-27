@@ -145,9 +145,8 @@ const LoggedOut = () => {
                     borderRadius: "15px",
                     padding: "1vh 5.4vw",
                     backgroundColor: isContinueAsGuestButtonHovered
-                      ? "#431E57"
-                      : "transparent",
-                    color: isContinueAsGuestButtonHovered ? "#fff" : "#302F2F",
+                      ? "#FFF0C7"
+                      : "#7FC9BF",
                   }}
                   onMouseEnter={handleContinueAsGuest}
                   onMouseLeave={handleHoverOutContinueAsGuest}

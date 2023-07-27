@@ -32,9 +32,3 @@ App {
 .nav-item {
   margin-right: 30px;
 }
-
-.fullName {
-  display: flex;
-  justify-content: flex-end;
-  align-items: center;
-}

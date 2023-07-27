@@ -51,8 +51,7 @@ const Login = ({
           fontWeight: "bold",
           padding: "1vh 10vw",
           borderRadius: "15px",
-          backgroundColor: isLoginButtonHovered ? "#431E57" : "transparent",
-          color: isLoginButtonHovered ? "#fff" : "#302F2F",
+          backgroundColor: isLoginButtonHovered ? "#FFF0C7" : "#7FC9BF",
         }}
         variant="outline-light"
         className="login"

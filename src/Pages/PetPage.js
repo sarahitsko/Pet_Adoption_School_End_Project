@@ -5,7 +5,7 @@ import CardList from "../components/CardList";
 import { useState, useEffect, useContext, useNevigate } from "react";
 import AppContext from "../context/AppContext";
 import axios from "axios";
-// import PetSwiper from "../components/Swiper";
+
 import Header from "../components/HeaderNav";
 const PetPage = ({
   card,
@@ -24,7 +24,7 @@ const PetPage = ({
   return (
     <>
       <Header />
-      <div className="PetPageMainContainer">
+      <div>
         <CardList
           card={card}
           cardList={cardList}

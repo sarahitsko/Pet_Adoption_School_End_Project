@@ -1,18 +1,10 @@
-.PetPageMainContainer {
-  background: linear-gradient(
-    #0f76bc,
-    #23aae2,
-    #a4ddf8,
-    #c7efed,
-    #e9f2ee,
-    #edf5ee,
-    #f9d9ce,
-    #f7c7c3,
-    #f5b9c0,
-    #f6b7c2,
-    #eeaab9
-  );
-}
+/* .PetPageMainContainer {
+  background-image: linear-gradient(to right, #302f2f, #fff);
+  border: 0.5px solid #434343;
+
+  height: 100%;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+} */
 
 .cardBody {
   display: flex;
@@ -21,14 +13,15 @@
   align-items: center;
   max-width: 400px;
   margin: 0 auto;
-
   background-color: rgba(255, 255, 255, 0.7);
-  border-radius: 10px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.25);
+  border-radius: 8px;
+  box-shadow: 8px 8px 8px rgba(0, 0, 0, 0.55);
   padding: 20px;
   text-align: center;
   height: 70vh;
-  border: 5px solid #2a2a37;
+  border: 2px solid #2a2a37;
+  margin-right: 3vw;
+  margin-bottom: 6vh;
 }
 
 .cardBody:hover {
@@ -45,18 +38,21 @@
   border-radius: 50%;
   border: 1px solid #2a2a37;
 }
+
 .pet-name {
+  font-family: "Ysabeau SC", sans-serif;
   font-size: 24px;
-  color: #0d78bd;
+  color: #2a5699;
   font-weight: bold;
   margin: 10px 0;
   letter-spacing: 1.5px;
 }
 .pet-description {
+  font-family: "Ysabeau SC", sans-serif;
   font-size: 18px;
   margin: 10px 0;
   font-weight: bold;
-  color: #9e1f63;
+  color: #000;
 }
 
 .adoption-buttons .pets-botton {

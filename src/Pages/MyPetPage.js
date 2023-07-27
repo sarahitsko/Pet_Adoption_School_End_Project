@@ -18,36 +18,37 @@ const MyPetPage = ({ cardList, card }) => {
   const {
     currentUser,
     savedPet,
-
     setSavedPet,
     token,
     setCurrentStatus,
     handleGetPetById,
   } = useContext(AppContext);
-
+  console.log(currentUser, "currentUser");
   const handleSavePet = (newPet) => {
     setSavedPet(newPet);
   };
 
   useEffect(() => {
-    const fetchPet = async () => {
-      try {
-        const res = await axios.get(
-          `http://localhost:8080/pets/user/${currentUser.id}`,
-          {
-            headers: { Authorization: `Bearer ${token}` },
-            withCredentials: true,
-          }
-        );
-        setSavedPet(res.data);
-        handleGetPetById(res.data);
-      } catch (err) {
-        console.log(err);
-      }
-    };
+    if (currentUser) {
+      const fetchPet = async () => {
+        try {
+          const res = await axios.get(
+            `http://localhost:8080/pets/user/${currentUser.userId}`,
+            {
+              headers: { Authorization: `Bearer ${token}` },
+              withCredentials: true,
+            }
+          );
+          setSavedPet(res.data);
+          handleGetPetById(res.data);
+        } catch (err) {
+          console.log(err);
+        }
+      };
 
-    fetchPet();
-  }, []);
+      fetchPet();
+    }
+  }, [currentUser]);
 
   useEffect(() => {
     if (Object.keys(savedPet).length > 0) {
@@ -61,39 +62,26 @@ const MyPetPage = ({ cardList, card }) => {
   return (
     <>
       <Header />
-      <Container className="myPet-container">
-        <Row>
-          {filteredCards.length > 0 ? (
-            <div>
-              {filteredCards.map((card) => (
-                <Card
-                  card={card}
-                  handleGetPetById={handleGetPetById}
-                  key={card.id}
-                  md={3}
-                  className="card-item"
-                  style={{
-                    display: "flex",
-                    flexWrap: "wrap",
-                    justifyContent: "center",
-                    marginRight: "5px",
-                    marginLeft: "5px",
-                    marginTop: "30px",
-                  }}
-                />
-              ))}
-            </div>
-          ) : (
-            <>
-              <p>You currently do not own or foster any pets </p>
-              <div>
-                {" "}
-                <img src={sadDog} height="100vh" />
-              </div>
-            </>
-          )}
-        </Row>
-      </Container>
+      {filteredCards.length > 0 ? (
+        <div className="my-pet-card">
+          {filteredCards.map((card) => (
+            <Card
+              card={card}
+              handleGetPetById={handleGetPetById}
+              key={card.id}
+              handleSavePet={handleSavePet}
+            />
+          ))}
+        </div>
+      ) : (
+        <>
+          <p>You currently do not own or foster any pets </p>
+          <div>
+            {" "}
+            <img src={sadDog} height="100vh" />
+          </div>
+        </>
+      )}
     </>
   );
 };

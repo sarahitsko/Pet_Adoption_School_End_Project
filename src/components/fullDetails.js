@@ -32,7 +32,7 @@ function FullDetailsModal({ card }) {
       <Button
         className="more-detail-button"
         style={{
-          backgroundColor: "#ED217C",
+          backgroundColor: "#fff",
           boxShadow: "  5px 5px 15px 5px rgba(0, 0, 0, 0.25)",
           marginTop: "6%",
         }}

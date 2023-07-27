@@ -1,7 +1,8 @@
 import Dropdown from "react-bootstrap/Dropdown";
 import DropdownButton from "react-bootstrap/DropdownButton";
 import { useState } from "react";
-
+import BasicSearch from "./BasicSearch";
+import sizepet from "../svg/sizepet.svg";
 //Can search based on Adoption Status, Height, Weight, Type, Name
 
 const AdvanceSearch = ({
@@ -48,41 +49,14 @@ const AdvanceSearch = ({
   return (
     <>
       <div className="advenced">
-        <input type="text" placeholder="Name"></input>
+        <input type="text" placeholder="Name" className="search-by-name" />
+        <BasicSearch handleType={handleType} />
+
         <DropdownButton
+          className="DropdownButton d-flex justify-content-center"
           id="dropdown-basic-button"
           variant="Info"
-          title="Type"
-          size="lg"
-        >
-          <Dropdown.Item
-            href="#/action-1"
-            onClick={() => handleType("Dog")}
-            key="dog"
-          >
-            Dog
-          </Dropdown.Item>
-          <Dropdown.Item
-            href="#/action-2"
-            onClick={() => handleType("Cat")}
-            key="cat"
-          >
-            Cat
-          </Dropdown.Item>
-          <Dropdown.Item
-            href="#/action-3"
-            onClick={() => handleType("Else")}
-            key="else"
-          >
-            Something else
-          </Dropdown.Item>
-        </DropdownButton>
-        <div></div>
-        <DropdownButton
-          className="DropdownButton"
-          id="dropdown-basic-button"
-          variant="Info"
-          title="adoptionStatus"
+          title="Adoption Status"
           size="lg"
         >
           <Dropdown.Item
@@ -107,8 +81,49 @@ const AdvanceSearch = ({
             Fostered
           </Dropdown.Item>
         </DropdownButton>
-        <div></div>
-        <DropdownButton
+        <div className="sizepet">
+          <div className="sizepet-small">
+            <img
+              src={sizepet}
+              alt="sizepet"
+              style={{ height: "8vh", weight: "8vw" }}
+              onClick={() => {
+                handleSelectHeight("short");
+                handleSelectWeight("small");
+              }}
+            />
+
+            <p>S</p>
+          </div>
+          <div className="sizepet-medium">
+            <img
+              src={sizepet}
+              alt="sizepet"
+              style={{ height: "12vh", weight: "12vw" }}
+              onClick={() => {
+                handleSelectHeight("high");
+                handleSelectWeight("medium");
+              }}
+            />
+            <p>M</p>
+          </div>
+          <div className="sizepet-large">
+            <img
+              src={sizepet}
+              alt="sizepet"
+              style={{ height: "16vh", weight: "16vw" }}
+              onClick={() => {
+                {
+                  handleSelectHeight("high");
+                  handleSelectWeight("large");
+                }
+              }}
+            />
+            <p>L</p>
+          </div>
+        </div>
+
+        {/* <DropdownButton
           className="DropdownButton"
           id="dropdown-basic-button"
           variant="Info"
@@ -117,7 +132,7 @@ const AdvanceSearch = ({
         >
           <Dropdown.Item
             href="#/action-1"
-            onClick={() => handleSelectHeight("short")}
+           
             key="short"
           >
             10cm - 30cm
@@ -161,7 +176,7 @@ const AdvanceSearch = ({
           >
             Large, (22Kg anf higher)
           </Dropdown.Item>
-        </DropdownButton>
+        </DropdownButton>*/}
       </div>
     </>
   );
