@@ -6,9 +6,8 @@ import { useContext, useState } from "react";
 import AppContext from "../context/AppContext";
 import { useNavigate, Link } from "react-router-dom";
 import { BsSearch } from "react-icons/bs";
-import axios from "axios";
 import "../App.css";
-import LogOut from "./LogOut";
+import UserMenu from "../components/UserMenu";
 
 function Header() {
   const { currentUser, setCurrentUser, token } = useContext(AppContext);
@@ -54,6 +53,7 @@ function Header() {
         justifyContent: "space-between",
         border: "1px solid black",
         boxShadow: " 0 0 30px rgba(0, 0, 0, 0.5)",
+        padding: "0 15px",
       }}
     >
       <div className="linkNav">
@@ -123,7 +123,7 @@ function Header() {
         </div>
         {currentUser && currentUser.name && (
           <div className="link">
-            <LogOut />
+            <UserMenu />
           </div>
         )}
       </div>

@@ -13,6 +13,7 @@ import FullDetailsModal from "./fullDetails";
 import { useLocation } from "react-router-dom";
 import Avatar from "react-avatar";
 import RandomColor from "./RandomColor";
+import bubble from "../svg/bubble.svg";
 
 function Card({ card }) {
   const {

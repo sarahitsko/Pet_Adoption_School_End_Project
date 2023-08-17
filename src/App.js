@@ -17,6 +17,7 @@ import React from "react";
 import AppContext from "./context/AppContext";
 import { useState, useEffect, useContext } from "react";
 import axios from "axios";
+import UserProfile from "./Pages/UserProfile";
 
 //Home page logged in
 const App = ({ card }) => {
@@ -36,6 +37,7 @@ const App = ({ card }) => {
     name: "",
     phone: "",
     email: "",
+    imageUrl: "",
   });
   const [cardInfo, setCardInfo] = useState({
     type: "",
@@ -220,6 +222,7 @@ const App = ({ card }) => {
                 <DashBoard userList={userList} fetchUsers={fetchUsers} />
               }
             />
+            <Route path="/userprofile" element={<UserProfile />} />
           </Routes>
           <div className="Footer">
             <Footer />

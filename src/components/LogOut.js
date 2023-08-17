@@ -27,14 +27,7 @@ const LogOut = () => {
   };
   return (
     <>
-      <div>
-        <img
-          src={user}
-          alt="user"
-          style={{ width: "30px", height: "30px" }}
-          onClick={hendleLoggingOut}
-        />
-      </div>
+      <div onClick={hendleLoggingOut}>Log out</div>
     </>
   );
 };

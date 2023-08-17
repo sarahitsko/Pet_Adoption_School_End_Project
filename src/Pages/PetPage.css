@@ -6,6 +6,13 @@
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
 } */
 
+.cardContainer {
+  position: relative;
+  /* Adjust the size of the card container based on your card size */
+  width: 300px;
+  height: 400px;
+}
+
 .cardBody {
   display: flex;
   flex-direction: column;
@@ -13,13 +20,14 @@
   align-items: center;
   max-width: 400px;
   margin: 0 auto;
+
   background-color: rgba(255, 255, 255, 0.7);
   border-radius: 8px;
-  box-shadow: 8px 8px 8px rgba(0, 0, 0, 0.55);
+  box-shadow: 8px 8px 8px rgba(0, 0, 0, 0.4);
   padding: 20px;
   text-align: center;
   height: 70vh;
-  border: 2px solid #2a2a37;
+  border: 2px solid #ccc;
   margin-right: 3vw;
   margin-bottom: 6vh;
 }

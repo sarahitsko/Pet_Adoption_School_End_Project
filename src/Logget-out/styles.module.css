@@ -82,18 +82,16 @@
   padding: 10vw 10vh;
   flex-direction: column;
   align-items: stretch;
-  letter-spacing: 1px;
-
-  font-family: "Ysabeau SC", sans-serif;
-  text-shadow: -1px 0 #fff, 0 1px fff, 1px 0 fff, 0 -1px #fff;
-  font-size: 20px;
+  font-family: "Raleway", sans-serif;
+  text-shadow: -0.5px 0 #fff, 0 1px fff, 0.5px 0 fff, 0 -1px #fff;
+  font-size: 1px;
 }
 
 .text_description {
   position: fixed;
   color: #028a6e;
-  text-shadow: 1px 0 #000000, 0 1px #ffffff, 1px 0 #ffffff, 0 1px #000000;
-  font-size: 20px;
+  letter-spacing: 1.5px;
+  font-size: 18px;
   left: 0%;
   top: 7%;
   font-weight: bold;
@@ -120,6 +118,7 @@
   background: linear-gradient(to right, #85dacb, #009775 60%, #00977b 7%);
   box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
   color: #302f2f;
+  font-weight: bold;
   padding: 0 30px;
   border-radius: 8px;
   border: 1px solid #ccc;
@@ -138,4 +137,37 @@
   left: 45%;
 
   width: 100vw;
+}
+
+.userProfileContainer {
+  position: relative;
+  height: 90vh;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+}
+
+.userProfileContainer::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url("../png/abstract.png");
+  background-size: contain;
+  background-repeat: no-repeat;
+  opacity: 0.4; /* adjust as needed */
+  z-index: -1; /* ensures the background is behind the content */
+}
+
+.userProfileInputs {
+  margin: 2.5vh 0 2.5vh 0;
+  border: 2px solid #c7c5c5;
+  outline-color: #383636;
+  border-radius: 8px;
+  padding: 0.5vw 0 0.5vw 1vw;
 }
